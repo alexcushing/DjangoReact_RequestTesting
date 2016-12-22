@@ -20,7 +20,11 @@ module.exports = {
             {
                 test: /\.css/,
                 loaders: [ 'style', 'css', 'sass' ]
-              }
+              },
+            {
+                test: /\.styl$/,
+                loader: 'style-loader!css-loader!stylus-loader'
+            }
         ],
     }
 };

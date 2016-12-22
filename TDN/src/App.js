@@ -18,9 +18,12 @@ class Post extends Component{
     clicky(e){
         e.preventDefault()
         axios.get('test/')
-          .then(function (response) {
+          .then((response) => {
             console.log(response);
             console.log(response.data);
+            for (let a in response.data){
+                console.log(response.data[a])
+            }
           }
         )
           .catch(function (error) {
@@ -31,8 +34,8 @@ class Post extends Component{
     
     render(){
         return(
-        <div>
-            <button onClick={this.clicky}>press me</button>
+        <div className="flexCont">
+            <button className="button" onClick={this.clicky}>press me</button>
         </div>
         )
     }

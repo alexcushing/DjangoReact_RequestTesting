@@ -58,9 +58,9 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	__webpack_require__(204);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var css = __webpack_require__(208);
 
 	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
@@ -21532,6 +21532,9 @@
 	            _axios2.default.get('test/').then(function (response) {
 	                console.log(response);
 	                console.log(response.data);
+	                for (var a in response.data) {
+	                    console.log(response.data[a]);
+	                }
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
@@ -21541,10 +21544,10 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'flexCont' },
 	                _react2.default.createElement(
 	                    'button',
-	                    { onClick: this.clicky },
+	                    { className: 'button', onClick: this.clicky },
 	                    'press me'
 	                )
 	            );
@@ -23046,46 +23049,8 @@
 
 
 /***/ },
-/* 204 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(205);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(207)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./App.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./App.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 205 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(206)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "body {\n  background: white; }\n", ""]);
-
-	// exports
-
-
-/***/ },
+/* 204 */,
+/* 205 */,
 /* 206 */
 /***/ function(module, exports) {
 
@@ -23391,6 +23356,46 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(209);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(207)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./Test.styl", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./Test.styl");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(206)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "body {\n  background: #fff;\n  color: #000;\n}\n.flexCont {\n  display: flex;\n  justify-content: center;\n}\n.button {\n  margin: 30px;\n  padding: 10px;\n  color: #fff;\n  background-color: #555;\n  border: none;\n}\n.button:active {\n  top: 1;\n}\n", ""]);
+
+	// exports
 
 
 /***/ }
