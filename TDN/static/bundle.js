@@ -21519,17 +21519,19 @@
 	    function Post(props) {
 	        _classCallCheck(this, Post);
 
-	        return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this));
+	        var _this = _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
+
+	        _this.clicky = _this.clicky.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(Post, [{
 	        key: 'clicky',
 	        value: function clicky(e) {
 	            e.preventDefault();
-	            _axios2.default.post('test', {
-	                test: 'test'
-	            }).then(function (response) {
+	            _axios2.default.get('test/').then(function (response) {
 	                console.log(response);
+	                console.log(response.data);
 	            }).catch(function (error) {
 	                console.log(error);
 	            });
@@ -21537,7 +21539,6 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-
 	            return _react2.default.createElement(
 	                'div',
 	                null,
