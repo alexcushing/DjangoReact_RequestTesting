@@ -1,19 +1,54 @@
 main-color = white
 secondary-color = black
 secondary-color-offset = #555555
+complementary-color = #f4bc42
+complementary-color-offset = #ffd987
+blue = blue
+red = red
 
 body
     background main-color
     color secondary-color
+form
+    width 100%
+
+.inputBox
+    border 0px
+    display inline-block
+    padding 5px
+    margin 5px
+    border-bottom solid 2px blue
+    &:focus
+        outline none
+        border-bottom solid 2px red
+
+  .button
+      border solid 2px complementary-color
+      background-color main-color
+      margin 15px
+      transition ease-in-out .05s
+      padding 10px
+      font-size 30px
+      display inline-block
+      &:hover
+        transition ease-in-out .05s
+        background-color complementary-color-offset
+
+.loader
+    position absolute
+    transform scale(.8)
+    top 10px
+    right 10px
+    font-size 12px
+
 .flexCont
     display flex
-    justify-content center
-    
-.button
-    margin 30px
-    padding 10px
-    color main-color
-    background-color secondary-color-offset
-    border none
-    &:active
-        top 1
+    padding 20px
+    align-content center
+    width 100%
+
+.submitForm
+    max-width 80%
+    text-align center
+    font-size 40px
+    margin 30px auto
